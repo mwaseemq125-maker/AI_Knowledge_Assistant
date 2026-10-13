@@ -28,7 +28,7 @@ Edit `.env` and add your Groq key to enable generated answers. You can obtain a 
 Run:
 
 ```bash
-uvicorn main:app --reload
+uvicorn main:app --reload --port 8050
 ```
 
 Open http://127.0.0.1:8050
