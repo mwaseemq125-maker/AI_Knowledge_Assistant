@@ -1,0 +1,7 @@
+Text Embeddings
+
+An embedding is a numerical vector that represents an item such as a word, sentence, paragraph, image, or other data. Sentence-transformer models encode text into dense vectors designed to capture semantic information. Texts with related meanings may have vectors that are close under a chosen distance or similarity measure.
+
+For semantic retrieval, a system encodes each document chunk and stores its vector alongside metadata such as source filename and chunk number. When a user asks a question, the same embedding model encodes the question. A vector database compares the query vector with stored vectors and returns the nearest candidates.
+
+Embeddings are not a complete understanding of a document and can miss domain-specific meanings, negation, or subtle distinctions. Chunk size, overlap, embedding model choice, and retrieval settings affect search quality. The text retrieved by embeddings should be inspected before generating a grounded answer.

@@ -1,0 +1,7 @@
+Semantic Search, Keyword Search, and RAG
+
+Keyword search looks for exact terms or token matches. It can work very well when users know the words used in a document, but it may miss relevant passages written with synonyms or different phrasing. Semantic search represents queries and documents as embeddings and ranks results by vector similarity, helping match related meanings even when the wording differs.
+
+A retrieval-augmented generation (RAG) system first retrieves relevant passages and then supplies those passages as context to a language model. A typical RAG pipeline loads documents, extracts text, splits text into chunks, creates embeddings, stores vectors, embeds a user query, retrieves the top candidates, and prompts a language model with the question and retrieved context.
+
+Retrieval quality limits answer quality: if the relevant evidence is not retrieved, the model may not be able to answer correctly. Prompts should instruct the model to use supplied evidence and state when the context is insufficient. Source names and page information can improve traceability. Similarity scores are ranking signals, not guarantees that a passage fully answers a question.

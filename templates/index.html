@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knowledge AI — Document Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="/"><span class="brand-mark">K</span><span>Knowledge<span class="brand-light">AI</span></span></a>
+    <div class="side-label">WORKSPACE</div>
+    <a class="nav-link active" href="#workspace"><span>✦</span> Ask documents</a>
+    <a class="nav-link" href="#library"><span>▤</span> Document library</a>
+    <a class="nav-link" href="#evaluation"><span>◈</span> Prompt evaluation</a>
+    <div class="sidebar-bottom">
+      <div class="status-dot"></div>
+      <div><strong>Local vector store</strong><small>ChromaDB enabled</small></div>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div><span class="eyebrow">YOUR PRIVATE KNOWLEDGE SPACE</span><h1>Document Intelligence</h1></div>
+      <div class="top-pill"><span class="live-dot"></span> Semantic search active</div>
+    </header>
+
+    <section class="hero-panel">
+      <div class="hero-copy">
+        <span class="eyebrow accent">RETRIEVE · REASON · RESPOND</span>
+        <h2>Your documents.<br><span>Answers that make sense.</span></h2>
+        <p>Upload your knowledge base and ask natural-language questions. Every answer starts with relevant document evidence.</p>
+        <a class="btn btn-primary-custom" href="#workspace">Start asking <span>↗</span></a>
+      </div>
+      <div class="hero-orb"><div class="orb-core">✦</div><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><span class="orb-tag tag-a">EMBEDDINGS</span><span class="orb-tag tag-b">RAG</span></div>
+    </section>
+
+    <section class="stats-grid">
+      <article class="stat-card"><span class="stat-icon violet">▤</span><span class="stat-label">Indexed chunks</span><strong id="chunkCount">—</strong><small>Stored in ChromaDB</small></article>
+      <article class="stat-card"><span class="stat-icon blue">⌕</span><span class="stat-label">Retrieval mode</span><strong>Semantic</strong><small>Sentence Transformer vectors</small></article>
+      <article class="stat-card"><span class="stat-icon green">✓</span><span class="stat-label">Prompt strategies</span><strong>03</strong><small>Zero-shot · Few-shot · Role-based</small></article>
+    </section>
+
+    <section id="workspace" class="content-section">
+      <div class="section-heading"><div><span class="eyebrow">01 / KNOWLEDGE CHAT</span><h3>Ask your documents</h3></div><span class="section-note">Top 3 evidence chunks</span></div>
+      <div class="workspace-grid">
+        <div class="panel upload-panel">
+          <div class="panel-title"><span class="title-icon">↑</span><div><h4>Add documents</h4><p>PDF, TXT or Markdown</p></div></div>
+          <label class="dropzone" for="fileInput"><span class="upload-symbol">↑</span><strong>Choose files to upload</strong><small>or click to browse · multiple files supported</small><span class="file-types">.PDF <i></i> .TXT <i></i> .MD</span></label>
+          <input id="fileInput" type="file" accept=".pdf,.txt,.md" multiple hidden>
+          <div id="selectedFiles" class="selected-files">No files selected</div>
+          <button id="uploadBtn" class="btn btn-outline-custom w-100">Upload & index <span>→</span></button>
+          <div id="uploadStatus" class="status-message" aria-live="polite"></div>
+          <div class="mini-tip"><span>✦</span> Text is split into overlapping chunks before vector indexing.</div>
+        </div>
+
+        <div class="panel chat-panel">
+          <div class="panel-title"><span class="title-icon purple">✧</span><div><h4>Knowledge assistant</h4><p>Answers grounded in retrieved context</p></div><span class="online-badge">READY</span></div>
+          <label class="field-label" for="promptType">PROMPTING TECHNIQUE</label>
+          <select id="promptType" class="form-select dark-input">
+            <option>Role-based</option><option>Zero-shot</option><option>Few-shot</option>
+          </select>
+          <label class="field-label mt-3" for="questionInput">YOUR QUESTION</label>
+          <textarea id="questionInput" class="form-control dark-input" rows="3" placeholder="e.g. How do embeddings help semantic search?"></textarea>
+          <div class="suggestions"><button class="suggestion" data-question="What is artificial intelligence?">What is AI?</button><button class="suggestion" data-question="What is the purpose of embeddings?">Explain embeddings</button><button class="suggestion" data-question="How does semantic search differ from keyword search?">Semantic vs keyword</button></div>
+          <button id="askBtn" class="btn btn-primary-custom w-100 mt-3">Generate answer <span>✦</span></button>
+          <div id="answerArea" class="answer-area">
+            <div class="empty-answer"><span>✧</span><strong>Your answer will appear here</strong><small>Ask a question to retrieve evidence and generate a grounded response.</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="library" class="content-section">
+      <div class="section-heading"><div><span class="eyebrow">02 / INDEX</span><h3>Document library</h3></div><button id="refreshDocs" class="btn btn-small">↻ Refresh</button></div>
+      <div class="panel library-panel"><div class="library-head"><span>DOCUMENT NAME</span><span>CHUNKS</span><span>STATUS</span></div><div id="documentList"><div class="library-empty">Loading indexed documents…</div></div></div>
+      <p class="helper-text">Five example TXT documents are included. Upload your own files to add them to the same searchable knowledge base.</p>
+    </section>
+
+    <section id="evaluation" class="content-section">
+      <div class="section-heading"><div><span class="eyebrow">03 / ASSIGNMENT PART 1</span><h3>Prompt engineering lab</h3></div><span class="section-note">5 questions × 3 techniques = 15 answers</span></div>
+      <div class="panel evaluation-panel">
+        <div class="evaluation-intro"><div><h4>Compare the strategies</h4><p>Each question uses the same retrieved context for a fair comparison. Rate answers manually against the evidence.</p></div><span class="lab-icon">◈</span></div>
+        <div class="question-list" id="testQuestions"></div>
+        <button id="evaluateBtn" class="btn btn-primary-custom">Run 15 prompt tests <span>↗</span></button>
+        <button id="exportBtn" class="btn btn-outline-custom ms-2" disabled>Export CSV ↓</button>
+        <div id="evaluationStatus" class="status-message" aria-live="polite"></div>
+        <div id="evaluationResults"></div>
+      </div>
+    </section>
+
+    <footer><span class="brand-mini">K</span> KnowledgeAI <span class="footer-separator">·</span> Built with Sentence Transformers, ChromaDB & FastAPI <span class="footer-right">AI Knowledge Assistant · Project</span></footer>
+  </main>
+</div>
+<script src="/static/js/app.js"></script>
+</body>
+</html>

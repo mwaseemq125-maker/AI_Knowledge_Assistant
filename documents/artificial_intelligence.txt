@@ -1,0 +1,7 @@
+Artificial Intelligence (AI)
+
+Artificial intelligence is a field of computing focused on building systems that perform tasks commonly associated with human intelligence. Examples include understanding language, recognizing images, planning, and solving problems. AI systems can be rule-based or learn patterns from data.
+
+AI applications include document analysis, translation, recommendation systems, robotics, accessibility tools, and decision support. AI output can be incorrect or incomplete, so important claims should be checked against reliable evidence. A language model generates responses from learned patterns and the context it receives; it does not automatically know whether every generated statement is true.
+
+Responsible AI development considers privacy, fairness, security, transparency, and human oversight. A knowledge assistant can reduce the effort required to find information in a collection of documents, but its answers should remain grounded in retrieved source text.

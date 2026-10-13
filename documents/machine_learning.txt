@@ -1,0 +1,7 @@
+Machine Learning
+
+Machine learning (ML) is a branch of artificial intelligence in which computer systems learn patterns from examples or data rather than relying only on hand-written rules. A typical workflow collects data, cleans it, selects useful features, trains a model, and evaluates performance on data that was not used for training.
+
+Supervised learning uses labeled examples. Classification predicts categories, such as whether an email is spam. Regression predicts numerical values, such as a delivery time. Unsupervised learning looks for structure in unlabeled data, including clusters. Reinforcement learning trains an agent through actions, feedback, and rewards.
+
+Machine learning performance depends on the quality and representativeness of data, model selection, evaluation design, and deployment conditions. Models may overfit when they memorize training examples and fail to generalize. Evaluation metrics should fit the task, and model predictions should not be treated as guaranteed facts.

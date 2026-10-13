@@ -1,0 +1,7 @@
+Deep Learning and Neural Networks
+
+Deep learning is a part of machine learning that uses neural networks with multiple processing layers. These networks learn representations from data by adjusting numerical parameters during training. A common training process calculates a loss, computes gradients using backpropagation, and updates parameters with an optimization algorithm such as gradient descent.
+
+Neural networks are used in image recognition, speech processing, language modeling, and other complex tasks. Training can require substantial data and computing resources. Deep learning models can also be difficult to interpret and may reproduce biases present in their training data.
+
+A neural network's output depends on its learned parameters and input. Testing on appropriate data, monitoring errors, and considering fairness and privacy are important when deploying a model.
